@@ -12,16 +12,21 @@ class App extends Component {
       googleMapsPromise, placesPromise
     ])
     .then(values => {
-      console.log(values);
-      let google = values[0]; //Google Maps
-      let venues = values[1].response.venues; //Foursquare
+      //console.log(values);
+      let google = values[0]; //Google Maps array
+      let venues = values[1].response.venues; //Foursquare array
+
       this.google = google;
       this.markers = [];
+      this.infowindow = new google.maps.InfoWindow();
 
+      /*Create Google Maps map to be placed in map HTML element.
+      Center point on the first element of the venues array.*/
       this.map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 8, 
+        zoom: 11, 
         scrollWheel: true,
         center: {lat: venues[0].location.lat, lng: venues[0].location.lng}
+        //TODO: Change center to Santa Ana central location)
       });
 
       venues.forEach(venue => {
@@ -33,6 +38,7 @@ class App extends Component {
           name: venue.name,
           animation: google.maps.Animation.DROP
         });
+        this.markers.push(this.markers);
       });
 
     })
@@ -41,8 +47,13 @@ class App extends Component {
 
   render() {
     return (
-      <div id="map">
+      <div>
+        <div id="map">
+          
+        </div>
+        <div id="sidebar">
         
+        </div>
       </div>
     );
   }
