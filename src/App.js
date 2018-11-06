@@ -4,6 +4,12 @@ import './App.css';
 import { load_google_maps, load_places } from './utils';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { query: ''}
+  }
+
   componentDidMount() {
     let googleMapsPromise = load_google_maps();
     let placesPromise = load_places();
@@ -12,7 +18,7 @@ class App extends Component {
       googleMapsPromise, placesPromise
     ])
     .then(values => {
-      //console.log(values);
+      // console.log(values);
       let google = values[0]; //Google Maps array
       let venues = values[1].response.venues; //Foursquare array
 
@@ -36,13 +42,30 @@ class App extends Component {
           venue: venue,
           id: venue.id,
           name: venue.name,
+          address: venue.location.address,
           animation: google.maps.Animation.DROP
         });
-        this.markers.push(this.markers);
+        this.markers.push(marker);
       });
 
     })
 
+  }
+
+  /* Loop through each marker.
+  Check if user's query matches any names.
+  If there is a match, then marker is visible,
+  but if there is no match then marker is disabled. */
+  filterVenues(query) {
+    // console.log(query);
+    this.markers.forEach(marker => {
+      if (marker.name.toLowerCase().includes(query.toLowerCase()) == true) {
+        marker.setVisible(true);
+      } else {
+        marker.setVisible(false);
+      }
+    });
+    this.setState( { query });
   }
 
   render() {
@@ -52,7 +75,7 @@ class App extends Component {
           
         </div>
         <div id="sidebar">
-        
+          <input value={ this.state.query } onChange={(e) => { this.filterVenues(e.target.value)}}/>
         </div>
       </div>
     );
