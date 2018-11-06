@@ -12,7 +12,7 @@ class App extends Component {
       googleMapsPromise, placesPromise
     ])
     .then(values => {
-      // console.log(values);
+      console.log(values);
       let google = values[0]; //Google Maps
       let venues = values[1].response.venues; //Foursquare
       this.google = google;
@@ -31,7 +31,7 @@ class App extends Component {
           venue: venue,
           id: venue.id,
           name: venue.name,
-          aniamtion: google.maps.Animation.DROP
+          animation: google.maps.Animation.DROP
         });
       });
 
