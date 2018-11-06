@@ -17,3 +17,12 @@ export function load_google_maps() {
     document.body.appendChild(script);
   });
 }
+
+export function load_places() {
+  let city = 'Santa Ana, CA';
+  let query = 'Restaurant';
+  let clientid = 'QSJC4DUQ42XJJ4VZU05A5BMAYR50MFE0MABEEMJRET4UNNGG';
+  let clientsecret = 'H0RTLAEVSZXUFEKELIDQHM5PCS3CSKU5IE1WYKI5YVT1L1SF';
+  var apiURL = 'https://api.foursquare.com/v2/venues/search?client_id=' + clientid + '&client_secret=' + clientsecret + '&v=20130815%20&limit=50&near=' + city + '&query=' + query + '';
+  return fetch(apiURL).then(resp => resp.json())
+}
