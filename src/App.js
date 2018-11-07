@@ -18,7 +18,7 @@ class App extends Component {
       googleMapsPromise, placesPromise
     ])
     .then(values => {
-      // console.log(values);
+      console.log(values);
       let google = values[0]; //Google Maps array
       this.venues = values[1].response.venues; //Foursquare array
 
