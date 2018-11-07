@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import { load_google_maps, load_places } from './utils';
+import Sidebar from './components/Sidebar.js';
 
 class App extends Component {
 
@@ -93,7 +94,7 @@ class App extends Component {
   Check if user's query matches any names.
   If there is a match, then marker is visible,
   but if there is no match then marker is disabled. */
-  filterVenues(query) {
+  filterVenues = (query) => {
     let f = this.venues.filter(venue => venue.name.toLowerCase().includes(query.toLowerCase()));
     this.markers.forEach(marker => {
       if (marker.name.toLowerCase().includes(query.toLowerCase()) === true) {
@@ -111,17 +112,11 @@ class App extends Component {
         <div id="map">
           
         </div>
-        <div id="sidebar">
-          <input placeholder="Search here" value={ this.state.query } onChange={(e) => { this.filterVenues(e.target.value) }}/>
-          <br />
-          {
-            this.state.filteredVenues && this.state.filteredVenues.length > 0 && this.state.filteredVenues.map((venue, index) => (
-              <div key={index} className="venue-item" onClick={ () => { this.listItemClick(venue) } }>
-                { venue.name }
-              </div>
-            ))
-          }
-        </div>
+        <Sidebar 
+          filterVenues={this.filterVenues}
+          filteredVenues={this.state.filteredVenues}
+          listItemClick={this.listItemClick} 
+        />
       </div>
     );
   }
