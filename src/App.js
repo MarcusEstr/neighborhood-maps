@@ -18,7 +18,7 @@ class App extends Component {
       googleMapsPromise, placesPromise
     ])
     .then(values => {
-      console.log(values);
+      // console.log(values);
       let google = values[0]; //Google Maps array
       this.venues = values[1].response.venues; //Foursquare array
 
@@ -74,6 +74,15 @@ class App extends Component {
 
   }
 
+  /* When the sidebar items are clicked, center on correlated marker. */
+  listItemClick = (venue) => {
+    let marker = this.markers.filter(m => m.id === venue.id)[0];
+    this.infowindow.setContent(marker.name);
+    this.map.setCenter(marker.position);
+    this.infowindow.open(this.map, marker);
+    this.map.panBy(0, -125);
+  }
+
   /* Loop through each marker.
   Check if user's query matches any names.
   If there is a match, then marker is visible,
@@ -101,7 +110,7 @@ class App extends Component {
           <br />
           {
             this.state.filteredVenues && this.state.filteredVenues.length > 0 && this.state.filteredVenues.map((venue, index) => (
-              <div key={index} className="venue-item">
+              <div key={index} className="venue-item" onClick={ () => { this.listItemClick(venue) } }>
                 { venue.name }
               </div>
             ))
