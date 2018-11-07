@@ -20,7 +20,7 @@ class App extends Component {
     .then(values => {
       // console.log(values);
       let google = values[0]; //Google Maps array
-      let venues = values[1].response.venues; //Foursquare array
+      this.venues = values[1].response.venues; //Foursquare array
 
       this.google = google;
       this.markers = [];
@@ -31,11 +31,11 @@ class App extends Component {
       this.map = new google.maps.Map(document.getElementById('map'), {
         zoom: 11, 
         scrollWheel: true,
-        center: {lat: venues[0].location.lat, lng: venues[0].location.lng}
+        center: {lat: this.venues[0].location.lat, lng: this.venues[0].location.lng}
         //TODO: Change center to Santa Ana central location)
       });
 
-      venues.forEach(venue => {
+      this.venues.forEach(venue => {
         let marker = new google.maps.Marker({
           position: { lat: venue.location.lat, lng: venue.location.lng },
           map: this.map,
@@ -68,6 +68,8 @@ class App extends Component {
         this.markers.push(marker);
       });
 
+      this.setState({ filteredVenues: this.venues });
+
     })
 
   }
@@ -96,6 +98,14 @@ class App extends Component {
         </div>
         <div id="sidebar">
           <input value={ this.state.query } onChange={(e) => { this.filterVenues(e.target.value) }}/>
+          <br />
+          {
+            this.state.filteredVenues && this.state.filteredVenues.length > 0 && this.state.filteredVenues.map((venue, index) => (
+              <div key={index} className="venue-item">
+                { venue.name }
+              </div>
+            ))
+          }
         </div>
       </div>
     );

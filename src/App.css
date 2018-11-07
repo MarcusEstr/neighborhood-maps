@@ -11,6 +11,11 @@ body {
   height: 80px;
 }
 
+.venue-item {
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
 .venue-name {
   color: #007bff;
   text-decoration: none;
