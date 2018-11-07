@@ -45,6 +45,26 @@ class App extends Component {
           address: venue.location.address,
           animation: google.maps.Animation.DROP
         });
+
+        /* Set or remove marker animation when the marker is clicked. */
+        marker.addListener('click', () => {
+          if (marker.getAnimation() !== null) { 
+            marker.setAnimation(null); 
+          } else {
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+          }
+          setTimeout( () => { marker.setAnimation(null) }, 1000);
+        });
+
+        /* Show the infowindow with content when a marker is clicked. */
+        google.maps.event.addListener(marker, 'click', () => {
+          this.infowindow.setContent(marker.name);
+          // this.map.setZoom(13);
+          this.map.setCenter(marker.position);
+          this.infowindow.open(this.map, marker);
+          this.map.panBy(0, -125);
+        });
+
         this.markers.push(marker);
       });
 
