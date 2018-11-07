@@ -59,7 +59,7 @@ class App extends Component {
   filterVenues(query) {
     // console.log(query);
     this.markers.forEach(marker => {
-      if (marker.name.toLowerCase().includes(query.toLowerCase()) == true) {
+      if (marker.name.toLowerCase().includes(query.toLowerCase()) === true) {
         marker.setVisible(true);
       } else {
         marker.setVisible(false);
@@ -75,7 +75,7 @@ class App extends Component {
           
         </div>
         <div id="sidebar">
-          <input value={ this.state.query } onChange={(e) => { this.filterVenues(e.target.value)}}/>
+          <input value={ this.state.query } onChange={(e) => { this.filterVenues(e.target.value) }}/>
         </div>
       </div>
     );
