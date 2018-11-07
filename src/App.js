@@ -53,7 +53,7 @@ class App extends Component {
           } else {
             marker.setAnimation(google.maps.Animation.BOUNCE);
           }
-          setTimeout( () => { marker.setAnimation(null) }, 1000);
+          setTimeout( () => { marker.setAnimation(null) }, 700);
         });
 
         /* Show the infowindow with content when a marker is clicked. */
@@ -81,6 +81,12 @@ class App extends Component {
     this.map.setCenter(marker.position);
     this.infowindow.open(this.map, marker);
     this.map.panBy(0, -125);
+    if (marker.getAnimation() !== null) { 
+      marker.setAnimation(null); 
+    } else {
+      marker.setAnimation(this.google.maps.Animation.BOUNCE);
+    }
+    setTimeout( () => { marker.setAnimation(null) }, 700);
   }
 
   /* Loop through each marker.
