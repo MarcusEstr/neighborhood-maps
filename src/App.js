@@ -79,7 +79,7 @@ class App extends Component {
   If there is a match, then marker is visible,
   but if there is no match then marker is disabled. */
   filterVenues(query) {
-    // console.log(query);
+    let f = this.venues.filter(venue => venue.name.toLowerCase().includes(query.toLowerCase()));
     this.markers.forEach(marker => {
       if (marker.name.toLowerCase().includes(query.toLowerCase()) === true) {
         marker.setVisible(true);
@@ -87,7 +87,7 @@ class App extends Component {
         marker.setVisible(false);
       }
     });
-    this.setState( { query });
+    this.setState( { filteredVenues: f, query });
   }
 
   render() {
@@ -97,7 +97,7 @@ class App extends Component {
           
         </div>
         <div id="sidebar">
-          <input value={ this.state.query } onChange={(e) => { this.filterVenues(e.target.value) }}/>
+          <input placeholder="Search here" value={ this.state.query } onChange={(e) => { this.filterVenues(e.target.value) }}/>
           <br />
           {
             this.state.filteredVenues && this.state.filteredVenues.length > 0 && this.state.filteredVenues.map((venue, index) => (
