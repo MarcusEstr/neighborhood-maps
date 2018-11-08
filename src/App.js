@@ -19,7 +19,7 @@ class App extends Component {
       googleMapsPromise, placesPromise
     ])
     .then(values => {
-      // console.log(values);
+       console.log(values);
       let google = values[0]; //Google Maps array
       this.venues = values[1].response.venues; //Foursquare array
 
@@ -44,6 +44,9 @@ class App extends Component {
           id: venue.id,
           name: venue.name,
           address: venue.location.address,
+          city: venue.location.city,
+          state: venue.location.state,
+          postalcode: venue.location.postalCode,
           animation: google.maps.Animation.DROP
         });
 
@@ -59,7 +62,11 @@ class App extends Component {
 
         /* Show the infowindow with content when a marker is clicked. */
         google.maps.event.addListener(marker, 'click', () => {
-          this.infowindow.setContent(marker.name);
+          var contentString = 
+            `<h2>${marker.name}</h2>
+            <p>${marker.address}</p>
+            <p>${marker.city} ${marker.state} ${marker.postalcode}</p>`;
+          this.infowindow.setContent(contentString);
           // this.map.setZoom(13);
           this.map.setCenter(marker.position);
           this.infowindow.open(this.map, marker);
