@@ -17,8 +17,8 @@ class SideBar extends Component {
           {
             this.state.showingVenues &&
             <div>
-              <p className="search-label">Search for Restaurants:</p>
-              <input className="transition middlr input-s1" placeholder="Search Here"
+              <p className="search-label" id="label-filter">Search for Restaurants:</p>
+              <input className="transition middlr input-s1" aria-labelledby="label-filter" placeholder="Search Here"
                 value={this.props.query} 
                 onChange={(e) => { this.props.filterVenues(e.target.value) }} 
               />
