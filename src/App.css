@@ -21,15 +21,16 @@ body {
   text-decoration: none;
   background-color: transparent;
 }
-.venue-name:hover {
-  color: #074c36;
-}
 
 .venue-div {
-  border: 1px solid #074c36;
+  border: 1px solid #11bd87;
   border-radius: 3px;
   padding: 5px;
   margin-bottom: 10px;
+}
+
+.venue-div:hover, .venue-div:focus {
+  background-color: #d2ecdc;
 }
 
 .App-header {
@@ -101,7 +102,7 @@ body {
     max-width: 80%;
     padding: 5px;
     line-height: normal;
-    border: 1px solid grey;
+    border: 1px solid #11bd87;
 }
 
 .text-center {
