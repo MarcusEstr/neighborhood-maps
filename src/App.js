@@ -70,7 +70,7 @@ class App extends Component {
   li_click(venue) {
     let marker = this.markers.filter(m => m.venue.id === venue.id)[0];
     let info_obj = this.info_boxes.filter(i => i.id === venue.id)[0];
-    let infoBox = info_obj && info_obj.contents || "nothing...";
+    let infoBox = (info_obj && info_obj.contents) || "nothing...";
     if(marker && infoBox) {
       if (marker.getAnimation() !== null) { marker.setAnimation(null); }
       else { marker.setAnimation(this.google.maps.Animation.BOUNCE); }
