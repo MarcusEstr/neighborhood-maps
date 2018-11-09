@@ -13,9 +13,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Running Project
 1. Download/clone this repository.
-2. Install Node.js and npm.
-3. Run `npm install`.
-4. Run `npm start`. This runs the app in development mode on `localhost:3000`.
+2. Install Node.js, npm, and idb.
+3. Run `npm install`. 
+4. Run `npm install idb`
+5. Run `npm start`. This runs the app in development mode on `localhost:3000`.
 
 ## Dependencies
 * [React](https://reactjs.org/)
