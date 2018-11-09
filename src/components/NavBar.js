@@ -11,8 +11,8 @@ class NavBar extends Component {
         >
           {
             this.props.sidebarOpen ?
-            <i className="x-menu" >X</i> :
-            <div className="hamburger-div">
+            <i className="x-menu" aria-label="menu" role="button" >X</i> :
+            <div className="hamburger-div" aria-label="menu" role="button">
                 <p className="hamburger-menu" ></p>
                 <p className="hamburger-menu" ></p>
                 <p className="hamburger-menu" ></p>
