@@ -9,13 +9,6 @@ class SideBar extends Component {
     showingPictures: false
   }
 
-  linkspanKeyEnter = (event, venue) => {
-    var code = event.keyCode || event.which;
-    if(code === 13) {
-      window.open("https://www.google.com/search?q=" + venue.name + ' ' + venue.location.formattedAddress[venue.location.formattedAddress.length - 2], '_blank');
-    }
-  }
-
   render() {
     let displaySidebar = this.props.sidebarOpen ? "block" : "none";
     let { classes } = this.props;
@@ -26,7 +19,8 @@ class SideBar extends Component {
           {
             this.state.showingVenues &&
             <div>
-              <input className="transition middlr input-s1" placeholder="Filter Venues"
+              <p className="search-label">Search for Restaurants:</p>
+              <input className="transition middlr input-s1" placeholder="Search Here"
                 value={this.props.query} onChange={(e) => { this.props.filterVenues(e.target.value) }} />
 
               <br/>
