@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+/* Map component for holding Google Maps content */
 class MapDiv extends Component {
   render() {
     return (
