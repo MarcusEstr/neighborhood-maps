@@ -219,7 +219,7 @@ class App extends Component {
           liKeyEnter={this.liKeyEnter}
           filterVenues={this.filterVenues}
           li_click={this.li_click}
-          liKeyEnter={this.liKeyEnter}
+          // liKeyEnter={this.liKeyEnter}
           handleShow={this.handleShow}
           displaySidebar={displaySidebar} />
         <MapDiv />
