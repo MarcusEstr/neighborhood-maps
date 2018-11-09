@@ -25,6 +25,13 @@ body {
   color: #074c36;
 }
 
+.venue-div {
+  border: 1px solid #074c36;
+  border-radius: 3px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
 .App-header {
   background-color: #222;
   height: 150px;
