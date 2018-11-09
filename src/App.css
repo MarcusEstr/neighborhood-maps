@@ -2,15 +2,6 @@ body {
   overflow: hidden;
 }
 
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
 .venue-item {
   padding: 5px;
   margin-bottom: 5px;
@@ -33,29 +24,6 @@ body {
   background-color: #d2ecdc;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-.transition {
-  -webkit-transition: transition 0.3s;
-  -moz-transition: transition 0.3s;
-  -o-transition: transition 0.3s;
-  -ms-transition: transition 0.3s;
-  transition: 0.3s;
-}
-
 .middlr {
 	display: block;
 	margin: auto;
@@ -69,16 +37,6 @@ body {
 .info_box h4 {
   color: #11bd87;
   font-size: 14px;
-}
-
-.polaroid {
-  width: 175px;
-  padding: 2px;
-  background: #f2f2f2;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-  border: 1px solid black;
-  margin-bottom: 10px;
 }
 
 .menu-text {
@@ -113,27 +71,6 @@ body {
 .text-center {
   text-align: center;
 }
-
-.modal-container {
-  position: relative;
-}
-.modal-container .modal, .modal-container .modal-backdrop {
-  position: absolute;
-}
-
-.modal-box {
-  position: fixed;
-  width: 100%;
-  margin-top: 25vh;
-  overflow: hidden;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* --- */
 
 #navbar {
   position: relative;
@@ -198,6 +135,7 @@ body {
   margin: 2px;
   padding: 2px;
 }
+
 #pictures-ul > li {
   list-style: none;
   width: 350px;
@@ -205,6 +143,7 @@ body {
   padding: 3px;
   margin-bottom: 5px;
 }
+
 #pictures-ul > li > img{
   width: 100%;
   padding: 3px;
@@ -212,27 +151,7 @@ body {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-#places-list {
-  margin: 0px;
-  padding: 0px;
-  width: 100%;
-}
-
-#places-list li {
-  list-style: none;
-  padding: 10px;
-  margin: 15px 0px;
-  border: 1px solid grey;
-  box-shadow: 0px 1px 1px grey;
-  background: white;
-  cursor: pointer;
-}
-
-#places-list li:hover {
-  background: lightgrey;
-}
-
-@media (max-width: 475px) {
+@media (max-width: 480px) {
   #head-text {font-size: 1rem; padding: 0px 10px;}
   .menu-text {padding: 0px 10px;}
 }
