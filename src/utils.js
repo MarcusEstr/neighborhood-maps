@@ -137,10 +137,8 @@ export function loadPlaces() {
     getVenues()
     .then(venues => {
       if(venues.length > 0) {
-        console.log('returning venues from idb');
         return resolve(venues) ;
       }
-      console.log('fetching venues...');
       let city = 'Santa Ana, CA';
       let query = 'Restaurant';
       var apiURL = 'https://api.foursquare.com/v2/venues/search?client_id=QSJC4DUQ42XJJ4VZU05A5BMAYR50MFE0MABEEMJRET4UNNGG&client_secret=H0RTLAEVSZXUFEKELIDQHM5PCS3CSKU5IE1WYKI5YVT1L1SF&v=20130815%20&limit=50&near=' + city + '&query=' + query + '';
@@ -150,7 +148,7 @@ export function loadPlaces() {
         let { venues } = json.response;
         storeVenues(venues)
         .then(res => {
-          console.log('Venues successfully stored.');
+          // console.log('Venues stored.');
           return resolve(venues);
         })
       })
