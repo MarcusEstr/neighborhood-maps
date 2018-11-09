@@ -5,7 +5,7 @@ class VenueCard extends Component {
   render() {
     const { venue } = this.props;
     return (
-        <div className="venue-div" tabIndex="0" onClick={() => 
+        <div className="venue-div" tabIndex="0" role="link" onClick={() => 
           { this.props.li_click(venue) }} 
           onKeyPress={(event) => { this.props.liKeyEnter(event, venue) }}
         >
