@@ -25,7 +25,7 @@ class SideBar extends Component {
 
               <br/>
 
-              <div className="">
+              <div className="sidebar-div">
                 {
                   this.props.filtered && this.props.filtered.map((venue, key) => (
                     <VenueCard key={key} venue={venue} li_click={this.props.li_click} liKeyEnter={this.props.liKeyEnter}/>
