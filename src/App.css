@@ -17,12 +17,12 @@ body {
 }
 
 .venue-name {
-  color: #007bff;
+  color: #11bd87;
   text-decoration: none;
   background-color: transparent;
 }
 .venue-name:hover {
-  color: #0056b3;
+  color: #074c36;
 }
 
 .App-header {
@@ -55,6 +55,7 @@ body {
 
 .info_box {
   width: 300px;
+  text-align: center;
 }
 
 .polaroid {
@@ -125,7 +126,7 @@ body {
   position: relative;
   z-index: 100;
   box-shadow: 0px 1px 1px grey;
-  background: black;
+  background: #074c36;
 }
 
 .hamburger-div {
