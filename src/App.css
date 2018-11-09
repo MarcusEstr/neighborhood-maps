@@ -29,7 +29,7 @@ body {
   margin-bottom: 10px;
 }
 
-.venue-div:hover, .venue-div:focus {
+.venue-div:focus {
   background-color: #d2ecdc;
 }
 
@@ -64,6 +64,11 @@ body {
 .info_box {
   width: 300px;
   text-align: center;
+}
+
+.info_box h4 {
+  color: #11bd87;
+  font-size: 14px;
 }
 
 .polaroid {
