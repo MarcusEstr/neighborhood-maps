@@ -69,8 +69,6 @@ self.addEventListener("fetch", function(event){
         var url = new URL(event.request.url);
         try {
           return fetch(event.request).then(function(response){
-            // if(url.origin !== location.origin) { useCache = OTHERS_CACHE; }
-            // else { useCache = isImageURL(event.request.url) ? IMAGES_CACHE : STATIC_CACHE; }
             let useCache = isImageURL(event.request.url) ? IMAGES_CACHE : STATIC_CACHE;
             storeInCache(useCache, event.request.clone(), response.clone());
             return response;

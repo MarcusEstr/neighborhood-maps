@@ -1,37 +1,6 @@
 import React, { Component } from 'react';
-// import { withStyles } from '@material-ui/core/styles';
-// import Button from '@material-ui/core/Button';
-// import Paper from '@material-ui/core/Paper';
-// import Grid from '@material-ui/core/Grid';
-
-import * as utils from '../utils';
+// import * as utils from '../utils';
 import VenueCard from './VenueCard';
-
-// const styles = theme => ({
-//   button: {
-//     margin: theme.spacing.unit,
-//   },
-//   input: {
-//     display: 'none',
-//   },
-//   root: {
-//     flexGrow: 1,
-//   },
-//   paper: {
-//     // position: 'absolute',
-//     width: theme.spacing.unit * 50,
-//     backgroundColor: theme.palette.background.paper,
-//     boxShadow: theme.shadows[5],
-//     padding: theme.spacing.unit * 4,
-//     maxWidth: '95%'
-//   },
-//   card: {
-//     maxWidth: 345,
-//   },
-//   media: {
-//     objectFit: 'cover',
-//   },
-// });
 
 class SideBar extends Component {
   state = {
@@ -39,12 +8,6 @@ class SideBar extends Component {
     showingVenues: true,
     showingPictures: false
   }
-
-  // componentWillMount() {
-  //   utils.getFlickrPhotos('garden').then(photos_list => {
-  //     this.setState({ photos_list });
-  //   });
-  // }
 
   linkspanKeyEnter = (event, venue) => {
     var code = event.keyCode || event.which;
@@ -59,8 +22,6 @@ class SideBar extends Component {
     return (
       <section id="sidebar" style={{ display: displaySidebar }}>
         <div id="sidebar-inner">
-
-
 
           {
             this.state.showingVenues &&

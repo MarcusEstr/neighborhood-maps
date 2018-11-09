@@ -3,7 +3,6 @@ import './App.css';
 import MapDiv from './components/MapDiv';
 import NavBar from './components/NavBar';
 import SideBar from './components/SideBar';
-import InfoModal from './components/InfoModal';
 
 import * as utils from './utils'
 
@@ -208,7 +207,6 @@ class App extends Component {
           toggleSideBar={this.toggleSideBar}
           toggleModal={this.toggleModal}
           li_click={this.li_click}
-          // wikidata={this.state.wikidata}
           handleShow={this.handleShow}
           infoKeyEnter={this.infoKeyEnter}
           menuKeyEnter={this.menuKeyEnter} />
@@ -216,7 +214,6 @@ class App extends Component {
         {/* Side Bar */}
         <SideBar
           menuText={menuText}
-          // wikidata={this.state.wikidata}
           query={this.state.query}
           filtered={this.state.filtered}
           sidebarOpen={this.state.sidebarOpen}
@@ -227,16 +224,6 @@ class App extends Component {
           liKeyEnter={this.liKeyEnter}
           handleShow={this.handleShow}
           displaySidebar={displaySidebar} />
-
-        {/* Modal */}
-        {
-          this.state.wikidata && (
-            <InfoModal
-              wikidata={this.state.wikidata}
-              showModal={this.state.showModal}
-              handleClose={this.handleClose}/>
-          )
-        }
 
         {/* Map Div */}
         <MapDiv />

@@ -24,3 +24,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * [Foursquare API](https://developer.foursquare.com/)
 * [Node.js](https://nodejs.org/en/)
 * [npm](https://www.npmjs.com/)
+    * [IndexedDB](https://www.npmjs.com/package/idb)
