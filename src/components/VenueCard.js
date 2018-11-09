@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 
+/* Venuecard component which holds restaurant name and address. */
 class VenueCard extends Component {
   render() {
     const { venue } = this.props;
     return (
-        <div className="venue-div" tabIndex="0" onClick={() => { this.props.li_click(venue) }} onKeyPress={(event) => { this.props.liKeyEnter(event, venue) }}>
+        <div className="venue-div" tabIndex="0" onClick={() => 
+          { this.props.li_click(venue) }} 
+          onKeyPress={(event) => { this.props.liKeyEnter(event, venue) }}
+        >
             <h2>
               <span className="venue-name"
-                onKeyPress={(event) => { this.linkspanKeyEnter(event, venue) }}>
-                  { venue.name }
+                onKeyPress={(event) => { this.linkspanKeyEnter(event, venue) }}
+              >
+                { venue.name }
               </span>
             </h2>
             <p>
