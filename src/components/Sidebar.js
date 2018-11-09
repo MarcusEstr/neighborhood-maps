@@ -41,23 +41,6 @@ class SideBar extends Component {
             </div>
           }
 
-          <br/>
-
-          { this.state.showingPictures &&
-            <div>
-              <p className="text-center"><strong>DMV Area<br/><small>(Flickr API)</small></strong></p>
-              <ul id="pictures-ul">
-                {
-                  this.state.photos_list.map((photo, key) => (
-                    <li key={key}>
-                      <img alt={photo.title + ' - ' + photo.owner} src={photo.img} /> <br/>
-                      <p><small><em>{photo.title}</em></small></p>
-                    </li>
-                  ))
-                }
-              </ul>
-            </div>
-          }
         </div>
       </section>
     );
