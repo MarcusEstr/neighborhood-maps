@@ -27,6 +27,7 @@ class App extends Component {
     this.filterVenues = this.filterVenues.bind(this);
   }
 
+  /* Functionality for showing and hiding elements */
   handleClose () {
     this.setState({ showModal: false });
   }
@@ -43,6 +44,7 @@ class App extends Component {
     this.setState(state => ({ showModal: !state.showModal }));
   }
 
+  /* Access Google Maps API and return it. */
   getGoogleMaps() {
     if (!this.googleMapsPromise) {
       this.googleMapsPromise = new Promise((resolve) => {
@@ -88,14 +90,12 @@ class App extends Component {
   componentDidMount() {
     let get_google = this.getGoogleMaps();
     let get_venues = utils.loadPlaces();
-    // let get_wiki = utils.loadWiki();
 
     Promise.all([ get_google, get_venues ])
     .then(values => {
-      console.log(values);
+      // console.log(values);
       let google = values[0];
       let venues = values[1];
-      // let wikidata = values[2];
 
       let markers = [];
       let info_boxes = [];
@@ -156,7 +156,7 @@ class App extends Component {
     })
     .catch(error => {
       console.log(error);
-      alert('Error loading page...');
+      alert('Sorry, the page could not load.');
     })
   }
 
@@ -173,6 +173,7 @@ class App extends Component {
     this.setState({ filtered: f, query: query });
   }
 
+  /* Tracking of keypresses on different elements to toggle visibility. */
   menuKeyEnter(event) {
     var code = event.keyCode || event.which;
     if(code === 13) {
@@ -200,7 +201,6 @@ class App extends Component {
 
     return (
       <div id="app-container">
-        {/* Nav Bar */}
         <NavBar
           menuText={menuText}
           sidebarOpen={this.state.sidebarOpen}
@@ -210,8 +210,6 @@ class App extends Component {
           handleShow={this.handleShow}
           infoKeyEnter={this.infoKeyEnter}
           menuKeyEnter={this.menuKeyEnter} />
-
-        {/* Side Bar */}
         <SideBar
           menuText={menuText}
           query={this.state.query}
@@ -224,8 +222,6 @@ class App extends Component {
           liKeyEnter={this.liKeyEnter}
           handleShow={this.handleShow}
           displaySidebar={displaySidebar} />
-
-        {/* Map Div */}
         <MapDiv />
       </div>
     );

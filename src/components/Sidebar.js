@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import * as utils from '../utils';
 import VenueCard from './VenueCard';
 
 class SideBar extends Component {
@@ -11,20 +10,16 @@ class SideBar extends Component {
 
   render() {
     let displaySidebar = this.props.sidebarOpen ? "block" : "none";
-    let { classes } = this.props;
     return (
       <section id="sidebar" style={{ display: displaySidebar }}>
         <div id="sidebar-inner">
-
           {
             this.state.showingVenues &&
             <div>
               <p className="search-label">Search for Restaurants:</p>
               <input className="transition middlr input-s1" placeholder="Search Here"
                 value={this.props.query} onChange={(e) => { this.props.filterVenues(e.target.value) }} />
-
               <br/>
-
               <div className="sidebar-div">
                 {
                   this.props.filtered && this.props.filtered.map((venue, key) => (
@@ -34,12 +29,10 @@ class SideBar extends Component {
               </div>
             </div>
           }
-
         </div>
       </section>
     );
   }
 }
-
 
 export default SideBar;

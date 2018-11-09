@@ -74,8 +74,7 @@ export function storeVenues(venues) {
   });
 }
 
-/* --- */
-
+/* Sort array by name ascending because by default array comes in with no sorting. */
 export function sort_by(array, property, direction) {
   let tempArray = array;
   tempArray.sort(function(a, b){
@@ -114,7 +113,8 @@ export function aft(l) {
   return s;
 }
 
-/* --- */
+/* getGoogleMaps function used by application. 
+Passes in Google Maps API information and receives results as JSON. */
 
 export function getGoogleMaps() {
   return new Promise((resolve) => {
@@ -130,6 +130,8 @@ export function getGoogleMaps() {
   });
 }
 
+/* loadPlaces function used by application.
+Passes in FourSquare API information and receives results as JSON. */
 export function loadPlaces() {
   return new Promise(function(resolve, reject){
     getVenues()
@@ -146,10 +148,9 @@ export function loadPlaces() {
       .then(resp => resp.json())
       .then(json => {
         let { venues } = json.response;
-        console.log('storing venues...');
         storeVenues(venues)
         .then(res => {
-          console.log('stored venues');
+          console.log('Venues successfully stored.');
           return resolve(venues);
         })
       })

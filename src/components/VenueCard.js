@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 
-
-
 class VenueCard extends Component {
   render() {
-    const { classes, venue } = this.props;
-
+    const { venue } = this.props;
     return (
         <div className="venue-div" tabIndex="0" onClick={() => { this.props.li_click(venue) }} onKeyPress={(event) => { this.props.liKeyEnter(event, venue) }}>
             <h2>
@@ -23,11 +20,9 @@ class VenueCard extends Component {
                 })
               }
             </p>
-
       </div>
     );
   }
 }
-
 
 export default VenueCard;
