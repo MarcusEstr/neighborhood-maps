@@ -36,7 +36,7 @@ function isExternalResources(url) {
 self.addEventListener("install", function(event){
   event.waitUntil(
     caches.open(STATIC_CACHE).then(function(cache){
-      console.log("Current Cache: ", STATIC_CACHE);
+      // console.log("Current Cache: ", STATIC_CACHE);
       return cache.addAll([
         "/",
         "/index.html"
@@ -48,11 +48,11 @@ self.addEventListener("install", function(event){
 self.addEventListener("activate", function(event){
   event.waitUntil(
     caches.keys().then(function(cacheNames){
-      console.log("Clearing Old Caches...");
+      // console.log("Clearing Old Caches...");
       Promise.all(
         cacheNames.map(function(cacheName){
           if(!allCaches.includes(cacheName)) {
-            console.log(`Deleting: ${cacheName}`);
+            // console.log(`Deleting: ${cacheName}`);
             return caches.delete(cacheName);
           }
         })
@@ -75,7 +75,7 @@ self.addEventListener("fetch", function(event){
           });
         }
         catch(e) {
-          console.log(e);
+          // console.log(e);
         }
       })
     );
