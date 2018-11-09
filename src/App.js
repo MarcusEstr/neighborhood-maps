@@ -54,6 +54,7 @@ class App extends Component {
         };
         const script = document.createElement("script");
         const API = 'AIzaSyB6N63ZIGH4b8Hgm9KhodA87Guuiem3C8Y';
+        //const API = 'A';
         script.src = `https://maps.googleapis.com/maps/api/js?key=${API}&callback=resolveGoogleMapsPromise`;
         script.async = true;
         document.body.appendChild(script);
